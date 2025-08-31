@@ -33,6 +33,48 @@ h1, h2, h3 {
   margin: 0.5em 0;
 }
 
+/* Header styling */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 5px;
+}
+
+header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+/* Contact info line */
+header p {
+  font-size: 1rem;
+  line-height: 1.4;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+header p span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  text-shadow: 0 0 6px #9f7fff;
+  font-weight: 500;
+}
+
+header p span i {
+  color: #00e5ff;
+  text-shadow: 0 0 8px #6f3eff;
+  font-size: 1.1rem;
+}
+
 /* Section containers */
 section {
   margin: 2em auto;
@@ -65,7 +107,8 @@ section {
 }
 
 /* Skill icons */
-.skill-card img {
+.skill-card img,
+.skill-card i {
   width: 48px;
   height: 48px;
   margin-bottom: 0.5em;
