@@ -1,115 +1,123 @@
+/* 🌌 Cosmic Resume Styles */
+
+/* Body cosmic nebula background */
 body {
   margin: 0;
-  font-family: 'Rajdhani', sans-serif;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
   color: #fff;
-  background: linear-gradient(135deg, #1a0033, #000814, #220044);
+  background: linear-gradient(135deg, #1e0b47, #2a0e62, #0a0026);
   background-attachment: fixed;
+  background-size: cover;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Starfield */
+/* Starfield overlay */
 .starfield {
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  opacity: 0.4;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  top:0; left:0;
-  z-index:-1;
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  opacity: 0.3;
+  z-index: -1;
 }
 
-header {
+/* Headings with glow */
+h1, h2, h3 {
+  color: #fff;
   text-align: center;
-  padding: 2rem;
-}
-header h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2.5rem;
-  text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-}
-header p {
-  font-size: 1.1rem;
-}
-.contact {
-  font-size: 0.9rem;
-  opacity: 0.85;
+  text-shadow: 0 0 10px #9f7fff, 0 0 20px #6f3eff;
+  margin: 0.5em 0;
 }
 
+/* Section containers */
 section {
-  padding: 1.5rem 3rem;
-}
-section h2 {
-  font-family: 'Orbitron', sans-serif;
-  color: #0ff;
-  text-shadow: 0 0 6px #0ff, 0 0 14px #09f;
-  margin-bottom: 1rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-ul li {
-  margin: 0.5rem 0;
+  margin: 2em auto;
+  max-width: 900px;
+  background: rgba(10, 5, 40, 0.7);
+  border-radius: 20px;
+  padding: 2em;
+  box-shadow: 0 0 25px rgba(162, 91, 255, 0.7);
 }
 
+/* Skills section grid */
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 1rem;
-}
-.skill {
-  background: rgba(255,255,255,0.05);
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0,255,255,0.4);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.skill img {
-  width: 28px;
-  height: 28px;
-  margin-bottom: 0.3rem;
-}
-.skill span {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-.bar {
-  width: 100%;
-  height: 8px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 10px;
-}
-.fill {
-  height: 100%;
-  background: linear-gradient(90deg, #0ff, #09f);
-  border-radius: 10px;
-  animation: glow 2s infinite alternate;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5em;
 }
 
-@keyframes glow {
-  from { box-shadow: 0 0 4px #0ff; }
-  to { box-shadow: 0 0 12px #0ff; }
-}
-
-footer {
+/* Skill card */
+.skill-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.5em;
+  border-radius: 15px;
   text-align: center;
-  padding: 2rem;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(111, 62, 255, 0.5);
 }
-footer button {
-  background: #0ff;
-  color: #000;
-  padding: 0.6rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  transition: 0.3s;
+
+.skill-card:hover {
+  transform: scale(1.05);
 }
-footer button:hover {
-  background: #09f;
-  color: #fff;
+
+/* Skill icons */
+.skill-card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5em;
+  filter: drop-shadow(0 0 8px #9f7fff);
+}
+
+/* Progress bar cosmic */
+.progress-bar {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  overflow: hidden;
+  margin-top: 0.5em;
+  height: 12px;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #6f3eff, #9f7fff, #00e5ff);
+  width: 0%;
+  animation: grow 2s forwards;
+  border-radius: 50px;
+  box-shadow: 0 0 10px #6f3eff;
+}
+
+/* Animations */
+@keyframes grow {
+  from { width: 0%; }
+  to { width: var(--level); }
+}
+
+/* Print adjustments */
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background: linear-gradient(135deg, #1e0b47, #2a0e62, #0a0026) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    color: #fff !important;
+  }
+
+  .starfield {
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  h1, h2, h3, p, li {
+    text-shadow: none !important;
+  }
+
+  section {
+    box-shadow: none !important;
+    background: rgba(10, 5, 40, 0.85) !important;
+  }
 }
